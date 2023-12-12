@@ -1,0 +1,52 @@
+{% extends "bazaar/layout.html" %}
+
+{% block body %}
+  <!-- Mission Section with fadeIn animation -->
+  <section class="mission-section container text-center my-5 animate__animated animate__fadeIn" style="background-color: #3498db; color: #fff; padding: 20px;">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p>
+          "Local markets offer numerous benefits, both for consumers and the community. 
+          As the saying goes, 'Think global, buy local,' and this rings true in the context of supporting local markets."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {% if message %}
+    <div class="alert alert-success animate__animated animate__fadeIn" style="background-color: #2ecc71; color: #fff; padding: 10px;">
+      <p>{{ message }}</p>
+    </div>
+  {% else %}
+    <!-- Fruits Section with fadeIn animation -->
+    <section class="fruits-section container my-5 animate__animated animate__fadeIn">
+      <div class="row">
+        {% for item in cart_items %}
+          <div class="col-md-4 mb-4">
+            <div class="card" style="background-color: #f39c12; color: #fff; padding: 10px;">
+              <table class="table">
+                <tr>
+                  <td>{{ item.item.item_name }}</td>
+                </tr>
+                <tr>
+                  <td>Price: ${{ item.item.price }}</td>
+                </tr>
+                <tr>
+                  <td>Quantity: {{ item.quantity }}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="{% url 'remove_from_cart' item.id %}" style="color: #000000;">Remove</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <h2 class="animate__animated animate__fadeIn" style="color: #3498db;">Total Price: ${{ total_price }} <a href="{% url 'buy' %}" style="color: #e74c3c;">Buy Now</a></h2>
+  </div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,71 @@
+
+/* body html */
+
+body {
+    background-color: green;
+}
+
+.fruit {
+    background-color: skyblue;
+    margin:10px;
+    padding: 3%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: x-large;
+}
+
+.mission {
+    margin: 1%;
+    font-size: xx-large;
+    color: green;
+    text-align: center;
+    font-style:bold;
+    font-family: ui-serif;
+}
+
+
+.home {
+    padding: 5%;
+    font-size: large;
+    font-style:italic;
+    background-color: bisque;
+}
+
+footer {
+    text-align: center;
+}
+
+.cart {
+    margin: .5%;
+    padding:.5%;
+}
+
+/* fadeIn animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* slideInUp animation */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animations to specific elements */
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 1s ease-in-out;
+}

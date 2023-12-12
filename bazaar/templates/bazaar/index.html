@@ -1,0 +1,61 @@
+{% extends "bazaar/layout.html" %}
+
+{% block body %}
+  <!-- Hero Section with fadeIn animation -->
+  
+
+  <!-- Mission Section with fadeIn animation -->
+  <section class="mission-section container text-center my-5 animate__animated animate__fadeIn">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2 class="mission">Our Mission</h2>
+        <p class="mission-description">
+          Local markets offer numerous benefits, both for consumers and the community. 
+          "Think global, buy local," and this rings true in the context of supporting local markets.
+          Shopping at local markets promotes economic sustainability by directly injecting money into the community.
+          It helps local businesses thrive, fostering a sense of community and connection.
+          Local products are often fresher and more environmentally friendly, reducing the carbon footprint associated with transportation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section with fadeIn animation -->
+  <section id="fresh_fruits" class="featured-products-section container my-5 animate__animated animate__fadeIn">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div class="row">
+      {% for item in featured_items %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.item_name }}</h5>
+              <p class="card-text">${{ item.price }}</p>
+              <a href="{% url 'add_to_cart' item.id %}" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Fruits Section with fadeIn animation -->
+  <section class="fruits-section container my-5 animate__animated animate__fadeIn">
+    <h2 class="text-center mb-4">Fresh Fruits</h2>
+    <div class="row">
+      {% for item in items %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.item_name }}</h5>
+              <p class="card-text">${{ item.price }}</p>
+              <a href="{% url 'add_to_cart' item.id %}" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}
