@@ -6,6 +6,7 @@ import uuid
 class item(models.Model):
     item_name = models.CharField(max_length=10)
     price = models.IntegerField()
+    #picture = models.ImageField(upload_to="img", default="")
 
     def __str__(self):
         return self.item_name
