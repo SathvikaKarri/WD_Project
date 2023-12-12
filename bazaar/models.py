@@ -25,7 +25,7 @@ class Cart(models.Model):
 
 # class CartItem(models.Model):
 #     item = models.ForeignKey(item, on_delete=models.CASCADE, related_name="procuctitem")
-#     cart = models.ForeignKey(cart, on_delete=models.CASCADE, related_name="cartitem")
+#     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="cartitem")
 #     quantity = models.IntegerField(default=0)
 
 #     def __str__(self):

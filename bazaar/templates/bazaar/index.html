@@ -1,9 +1,15 @@
 {% extends "bazaar/layout.html" %}
 
 {% block body %}
-  <!-- Hero Section with fadeIn animation -->
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add the following line to load the static tag -->
+    {% load static %}
 
+    <!-- Add your other head content here -->
+    
+</head>
   <!-- Mission Section with fadeIn animation -->
   <section class="mission-section container text-center my-5 animate__animated animate__fadeIn">
     <div class="row">
@@ -27,9 +33,9 @@
       {% for item in featured_items %}
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}">
+            <img src="{% static 'images/' %}{{ item.item_name|slugify }}.png" class="card-img-top" alt="{{ item.item_name }}" width="50" height="300">
             <div class="card-body">
-              <h5 class="card-title">{{ item.item_name }}</h5>
+              <h5 class="card-title">{{item.item_name }}</h5>
               <p class="card-text">${{ item.price }}</p>
               <a href="{% url 'add_to_cart' item.id %}" class="btn btn-primary">Add to Cart</a>
             </div>
@@ -46,7 +52,7 @@
       {% for item in items %}
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}">
+            <img src="{% static 'images/' %}{{ item.item_name|slugify }}.png" class="card-img-top" alt="{{ item.item_name }}" width="50" height="300">
             <div class="card-body">
               <h5 class="card-title">{{ item.item_name }}</h5>
               <p class="card-text">${{ item.price }}</p>
@@ -57,5 +63,4 @@
       {% endfor %}
     </div>
   </section>
-
 {% endblock %}
